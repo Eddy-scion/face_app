@@ -1,0 +1,9 @@
+body {
+  margin: 0px;
+  font-family: "Courier New", Courier, monospace;
+  background: linear-gradient(120deg, #2980b5, #8e44ad);
+}
+
+.App {
+  text-align: center;
+}
