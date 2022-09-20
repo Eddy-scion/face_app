@@ -66,9 +66,11 @@ const App = (props) => {
   return (
     <React.Fragment>
       <NavBar />
-      <div className="App">
-        <ImageSearchForm onSubmit={onSubmit} />
-        <FaceRecognition src={imageURL} box={box} />
+      <div className="app">
+        <div className="container">
+          <ImageSearchForm onSubmit={onSubmit} />
+          <FaceRecognition src={imageURL} box={box} />
+        </div>
       </div>
     </React.Fragment>
   );

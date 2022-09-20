@@ -9,19 +9,18 @@ const ImageSearchForm = (props) => {
   };
 
   return (
-    <div className="center">
-      <div className="form center">
+    <div className="search-form">
+      <div className="container">
         <input
-          className="in-form"
           placeholder=" Enter image URL..."
           type="text"
           onChange={handleChange}
           value={text.input}
         />
         <button
-          className="in-form"
           onClick={() => {
             props.onSubmit(text.input);
+            setText({ input: "" });
           }}
         >
           <b>Detect</b>

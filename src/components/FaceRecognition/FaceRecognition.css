@@ -1,25 +1,19 @@
+.face {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+}
+
+.img {
+  margin-bottom: 10px;
+}
+
 .bounding-box {
   position: absolute;
-  /* box-shadow: 0 0 0 3px #fff inset; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   cursor: pointer;
   border: 2px solid blue;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-}
-
-.imgForm {
-  position: relative;
-  width: fit-content;
-  height: auto;
-}
-
-.img {
-  width: auto;
-  margin-bottom: 10px;
 }

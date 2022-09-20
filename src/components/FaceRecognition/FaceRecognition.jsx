@@ -13,9 +13,9 @@ const FaceRecognition = ({ src, box }) => {
   }, [box]);
   console.log(box);
   return (
-    <div className="center">
-      <div className="imgForm center">
-        <img className="img" src={src} alt="" ref={ref} />
+    <div className="">
+      <div className="face">
+        <img src={src} ref={ref} />
         {box.map((item, index) => (
           <div
             className="bounding-box"
