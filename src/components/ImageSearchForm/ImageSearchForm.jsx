@@ -4,6 +4,8 @@ import "./ImageSearchForm.css";
 const ImageSearchForm = (props) => {
   const [text, setText] = useState({ input: "" });
 
+  const [clickButton, setClickButton] = useState(true);
+
   const handleChange = (e) => {
     setText({ input: e.target.value });
   };
@@ -19,8 +21,10 @@ const ImageSearchForm = (props) => {
         />
         <button
           onClick={() => {
-            props.onSubmit(text.input);
-            setText({ input: "" });
+            {
+              props.onSubmit(text.input);
+              setText({ input: "" });
+            }
           }}
         >
           <b>Detect</b>
