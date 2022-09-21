@@ -4,7 +4,18 @@ import "./ImageSearchForm.css";
 const ImageSearchForm = (props) => {
   const [text, setText] = useState({ input: "" });
 
-  const [clickButton, setClickButton] = useState(true);
+  const btnHold = (e) => {
+    if (text.input.trim().length === "") {
+      e.preventDefault();
+    }
+
+    if (text.input.trim().length > 0) {
+      {
+        props.onSubmit(text.input);
+        setText({ input: "" });
+      }
+    }
+  };
 
   const handleChange = (e) => {
     setText({ input: e.target.value });
@@ -19,14 +30,7 @@ const ImageSearchForm = (props) => {
           onChange={handleChange}
           value={text.input}
         />
-        <button
-          onClick={() => {
-            {
-              props.onSubmit(text.input);
-              setText({ input: "" });
-            }
-          }}
-        >
+        <button onClick={btnHold}>
           <b>Detect</b>
         </button>
       </div>

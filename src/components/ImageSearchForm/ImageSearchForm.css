@@ -25,6 +25,10 @@
   outline: none;
 }
 
+.search-form input:focus {
+  padding-left: 10px;
+}
+
 .search-form button {
   width: 100px;
   height: 38px;
