@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageSearchForm from "./components/ImageSearchForm/ImageSearchForm";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import "./App.css";
@@ -41,26 +41,29 @@ const App = (props) => {
       },
       body: raw,
     };
-    fetch(
-      "https://api.clarifai.com/v2/models/" +
-        MODEL_ID +
-        "/versions/" +
-        MODEL_VERSION_ID +
-        "/outputs",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then(
-        (result) => {
-          const clarifaiFaces = result.outputs[0].data.regions;
-          const arr = [];
-          clarifaiFaces.forEach((item) =>
-            arr.push(item.region_info.bounding_box)
-          );
-          setBox(arr);
-        } /*console.log(result)*/
+
+    if (imageURL) {
+      fetch(
+        "https://api.clarifai.com/v2/models/" +
+          MODEL_ID +
+          "/versions/" +
+          MODEL_VERSION_ID +
+          "/outputs",
+        requestOptions
       )
-      .catch((error) => console.log("Error", error));
+        .then((response) => response.json())
+        .then(
+          (result) => {
+            const clarifaiFaces = result.outputs[0].data.regions;
+            const arr = [];
+            clarifaiFaces.forEach((item) =>
+              arr.push(item.region_info.bounding_box)
+            );
+            setBox(arr);
+          } /*console.log(result)*/
+        )
+        .catch((error) => console.log("Error", error));
+    }
   };
 
   return (
