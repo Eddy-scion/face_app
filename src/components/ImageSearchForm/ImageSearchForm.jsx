@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ImageSearchForm.css";
 
 const ImageSearchForm = (props) => {
   const [text, setText] = useState({ input: "" });
 
   const btnHold = (e) => {
-    if (text.input.trim().length === "") {
+    if (text.input.trim().length === 0) {
       e.preventDefault();
     }
 
